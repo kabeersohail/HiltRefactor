@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HiltRefactor"
         tools:targetApi="31">
+        <service
+            android:name=".services.SampleService"
+            android:enabled="true"
+            android:exported="true"></service>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

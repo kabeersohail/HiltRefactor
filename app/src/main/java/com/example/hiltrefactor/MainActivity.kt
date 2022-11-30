@@ -1,9 +1,11 @@
 package com.example.hiltrefactor
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.hiltrefactor.databinding.ActivityMainBinding
+import com.example.hiltrefactor.services.SampleService
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -17,14 +19,26 @@ class MainActivity : AppCompatActivity() {
      */
     @Inject lateinit var exampleClassThatCanBeInjected: ExampleClassThatCanBeInjected
 
+    @Inject lateinit var interfaceUsageWithHilt: InterfaceUsageWithHilt
+
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.test.setOnClickListener {
+        binding.classTest.setOnClickListener {
             exampleClassThatCanBeInjected.exampleMethod()
+        }
+
+        binding.interfaceTest.setOnClickListener {
+            interfaceUsageWithHilt.exampleMethodDefinition()
+        }
+
+        binding.serviceTest.setOnClickListener {
+            Intent(this, SampleService::class.java).also { serviceIntent ->
+                startService(serviceIntent)
+            }
         }
 
     }

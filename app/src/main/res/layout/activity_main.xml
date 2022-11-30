@@ -13,14 +13,32 @@
         tools:context=".MainActivity">
 
         <Button
-            android:id="@+id/test"
+            android:id="@+id/class_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/test"
+            android:text="@string/class_test"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:text="@string/interface_test"
+            android:id="@+id/interface_test"
+            app:layout_constraintTop_toBottomOf="@id/class_test"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:text="@string/service_test"
+            android:id="@+id/service_test"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/interface_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
